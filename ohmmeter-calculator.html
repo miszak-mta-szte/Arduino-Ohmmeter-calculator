@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arduino Ohmmeter calculator</title>
+	<script type="text/javascript" src="ohmmeter-calculator.js"></script>
+    </head>
+    <body>
+        <div style="float: left; overflow: auto; border: 1px solid gray; margin: 5px; padding: 5px; background-color: #eeeeee">
+            <fieldset style="width:auto;">
+                <legend>Arduino Ohmmeter calculator</legend>
+                ADC resolution [bits]<br><input type="text" id="adcBits" style="width:5em;" value="10"><br>
+                ADC absolute error [LSB]<br><input type="text" id="adcError" style="width:5em;" value="2.0"><br>
+                Reference resistor tolerance [%]<br><input type="text" id="rrefTolerance" style="width:5em;" value="1.0"><br>
+                <fieldset style="width:auto;">
+                    <legend>Calculate reference resistance and accuracy</legend>
+                    Resistance range [Ohm]:<br>
+                    <input type="text" id="rMin" style="width:5em;" value="1000"> to <input type="text" id="rMax" style="width:5em;" value="100000"><br>
+                    Reference resistor value [Ohm]<br><input type="text" id="calculatedrref" style="width:5em;" value="" readonly>&nbsp;E24 values<input type="checkbox" id="E24" style="margin-left: 5px;"><br>
+                    Measurement accuracy in this range [%]<br><input type="text" id="measurementAccuracy" style="width:5em;" value="" readonly><br>
+                    <button style="margin-top: 5px; width:20em;" onclick="calculateRRef()">Calculate</button>
+                    <p style="display:none; width:16em" id="rrefMessage"></p>
+                </fieldset>
+                <fieldset style="width:auto;">
+                    <legend>Calculate resistance range</legend>
+                    Reference resistor value [Ohm]<br><input type="text" id="rref" style="width:5em;" value="10000"><br>
+                    Desired measurement accuracy [%]<br><input type="text" id="desiredAccuracy" style="width:5em;" value="2.0"><br>
+                    Resistance range [Ohm]:<br>
+                    <input type="text" id="calculatedrMin" style="width:5em;" value="" readonly> to <input type="text" id="calculatedrMax" style="width:5em;" value="" readonly><br>
+                    <button style="margin-top: 5px; width:20em;" onclick="calculateRange()">Calculate</button>
+                    <p style="display:none; width:16em" id="rangeMessage"></p>
+                </fieldset>
+            </fieldset>
+        </div>
+
+        <script type="text/javascript">
+        </script>
+    </body>
+</html>
